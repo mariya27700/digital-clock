@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Digital clock</title>
+        <style>
+    body {
+        background-color: #000;
+        color: #0ff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        font-family: 'Courier New', monospace;
+    }
+
+    h1 {
+        margin: 10px;
+        text-align: center;
+    }
+
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .h, .m, .s {
+        font-size: 80px;
+        margin: 0 5px;
+        text-shadow: 0 0 15px rgb(214, 162, 205);
+    }
+</style>
+
+       
+    </head>
+
+    <body onload="time()">
+           <h1>Digital clock</h1>
+           <div>
+                <h1  class="h"></h1>
+                <h1  class="m"></h1>
+                <h1  class="s"></h1>
+                <h1 class="ampm"></h1>
+           </div>
+<script>
+    function time(){
+   let d= new Date();
+  
+  
+    let h = d.getHours();
+    document.querySelector(".h").innerHTML=h+":";
+   
+   
+    let m =d.getMinutes();
+ document.querySelector(".m").innerHTML=m+":";
+   
+    let s = d.getSeconds();
+     document.querySelector(".s").innerHTML=s;
+     let ampm;
+     if (h >= 12) {
+        ampm = "PM";
+        } else {
+        ampm = "AM";
+        }
+document.querySelector(".ampm").innerHTML=" "+ampm;
+}
+ setInterval(time, 1000);
+</script>
+    </body>
+</html>
